@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericPooler : MonoBehaviour
+public class BulletPooler : MonoBehaviour
 {
     List<GameObject> pool;
     // Start is called before the first frame update
