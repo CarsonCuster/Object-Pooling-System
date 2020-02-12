@@ -4,28 +4,43 @@ using UnityEngine;
 
 public class BulletPooler : MonoBehaviour
 {
-    List<GameObject> pool;
+    public List<GameObject> pool;
     public GameObject bulletprefab;
+    public static BulletPooler instance;
     // Start is called before the first frame update
-    public void Start()
+    void awake()
+    {
+        instance = this;
+    }
+
+    public void Fire()
     {
         pool = new List<GameObject>();
         GameObject bullet = GameObject.Instantiate(bulletprefab);
 
-        if (pool.Contains(bullet))
+        if (Input.GetButton("Jump"))
         {
-            bullet.SetActive(true);
-        }
-        else
-        {
-            GameObject.Instantiate(bulletprefab);
-            pool.Add(bulletprefab);
+            if (pool.Contains(bullet))
+            {
+                bullet.SetActive(true);
+            }
+            else
+            {
+                GameObject.Instantiate(bulletprefab);
+                pool.Add(bulletprefab);
+            }
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public GameObject GetPooledObject()
     {
-
+        for (int i = 0; i < pool.Count; i++)
+        {
+            if (!pool[i].activeInHierarchy)
+            {
+                return pool[i];
+            }
+        }
+        return null;
     }
 }
+
