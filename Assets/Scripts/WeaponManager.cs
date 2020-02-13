@@ -6,10 +6,7 @@ public class WeaponManager : MonoBehaviour
 {
     [Header("Settings")]
     public GameObject bullet;
-    float timer = 0;
-
-
-    public float secondsbeforedisable;
+    float timer = 5;
     
         // Start is called before the first frame update
     void Start()
@@ -21,8 +18,9 @@ public class WeaponManager : MonoBehaviour
     void Update()
     {
 
-        timer = timer+Time.deltaTime;
-        if(Input.GetButton("Jump"))
+        
+        
+        if(Input.GetButtonDown("Jump"))
         {
             GameObject bullet = BulletPooler.instance.GetPooledObject();
             if (bullet != null)
@@ -31,14 +29,17 @@ public class WeaponManager : MonoBehaviour
                 bullet.transform.rotation = transform.rotation;
                 bullet.SetActive(true);
                 bullet.GetComponent<Rigidbody2D>();
+                StartCoroutine("Disable");
             }
         }
 
-        if(timer > secondsbeforedisable)
-        {
-            bullet.SetActive(false);
-        }
 
+    }
 
+    IEnumerator Disable()
+    {
+        yield return new WaitForSeconds(5);
+        bullet.SetActive(false);
+        Debug.Log("agfiwa");
     }
 }
