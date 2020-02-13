@@ -6,21 +6,20 @@ public class WeaponManager : MonoBehaviour
 {
     [Header("Settings")]
     public GameObject bullet;
-    float timer = 5;
-    
-        // Start is called before the first frame update
+
+    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
-        
-        if(Input.GetButtonDown("Jump"))
+
+
+        if (Input.GetButtonDown("Jump"))
         {
             GameObject bullet = BulletPooler.instance.GetPooledObject();
             if (bullet != null)
@@ -39,7 +38,9 @@ public class WeaponManager : MonoBehaviour
     IEnumerator Disable()
     {
         yield return new WaitForSeconds(5);
-        bullet.SetActive(false);
-        Debug.Log("agfiwa");
+        foreach (var any in BulletPooler.instance.pool)
+        {
+            any.SetActive(false);
+        }
     }
 }
