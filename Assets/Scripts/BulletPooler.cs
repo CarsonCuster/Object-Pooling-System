@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletPooler : MonoBehaviour
 {
     public static BulletPooler instance;
+    [HideInInspector]
     public List<GameObject> pool;
     public GameObject bulletprefab;
     public int poolSize;
