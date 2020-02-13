@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    [Header("Settings")]
     public GameObject bullet;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    Bullet go;
     // Update is called once per frame
+
+  
     void Update()
     {
 
@@ -27,8 +22,9 @@ public class WeaponManager : MonoBehaviour
                 bullet.transform.position = transform.position;
                 bullet.transform.rotation = transform.rotation;
                 bullet.SetActive(true);
-                bullet.GetComponent<Rigidbody2D>();
-                StartCoroutine("Disable");
+                StartCoroutine("Disable"); 
+                go.OnEnable();
+                
             }
         }
 
