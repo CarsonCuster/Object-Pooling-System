@@ -9,3 +9,8 @@ Create an empty GameObject and attach the "BulletPooler" script
 
 *Bullet prefab must be a gameObject with a rigidBody2D
 
+
+Collaboration:
+
+Collaboration between Owen and I went very well. We were able to set a day to begin working on the assignment, and both stay focused for the entirety of working. We both brought different strengths to the table. I scheduled the meeting time and situated who would be working on what. Owen was very knowledgeable when it came to creating functioning scripts for the assignment, along with helping me with a few problems I had while working. The collaboration went very well all in all.
+
