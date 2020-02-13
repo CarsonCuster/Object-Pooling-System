@@ -8,6 +8,7 @@ public class BulletPooler : MonoBehaviour
     public List<GameObject> pool;
     public GameObject bulletprefab;
     public int poolSize;
+    public bool canGrow;
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,7 +35,17 @@ public class BulletPooler : MonoBehaviour
                 return pool[i];
             }
         }
-        return null;
+        if (canGrow)
+        {
+            GameObject bullet = GameObject.Instantiate(bulletprefab);
+            bullet.SetActive(false);
+            pool.Add(bullet);
+            return bullet;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
 
