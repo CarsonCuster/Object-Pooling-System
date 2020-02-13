@@ -14,6 +14,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     public void OnEnable()
     {
-        rb.AddForce(transform.up * 10.0f, ForceMode2D.Impulse);
+        rb.AddForce(transform.up * 10.0f, ForceMode2D.Impulse); //When the bullet is enable in the hierarchy, we apply an impulse force to fire it like a bullet
     }
 }
